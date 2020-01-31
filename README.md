@@ -1,7 +1,7 @@
 # Monitor teplôt, vlhkostí, ovládanie ventilov radiátorov
 
 # MODUL 1 - BYT - Senzory a zbernice
-| Číslo zbernice | Miesto | Typ |
+| Číslo zbernice | Miesto | Typ | Záznam |
 | --- | --- | --- | --- |
 | 1 | Obývačka | SHT21 | Teplota + vlhkosť |
 | 2 | Obývačka | BME280 | Teplota + vlhkosť |
