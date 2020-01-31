@@ -99,3 +99,12 @@
 
 # MODUL 2 - KOTOLŇA - Schéma zapojenia
 ![MODUL 2 - KOTOLŇA - Schéma zapojenia pre Arduino](https://raw.githubusercontent.com/martinius96/Monitor-teploty-vlhkosti-kurenie/master/SCHEMA_KOTOLNA_MODUL_2.png)
+
+# Screenshoty systému
+![Snímanie teploty, vykurovanie - Login systém](https://i.imgur.com/mYoOIEX.jpg)
+![Snímanie teploty, ovládanie kúrenia, solenoidov - Dostupnosť služieb](https://i.imgur.com/zZ4tSeE.jpg)
+![Snímanie teploty, ovládanie kúrenia, solenoidov cez Arduino - Prehľad dát z OneWire senzorov](https://i.imgur.com/CtGgKIe.png)
+![Vstupy a výstupy - riadenie kúrenia, vykurovania](https://i.imgur.com/JumT70A.png)
+![Snímanie teploty, ovládanie kúrenia - Zdrojový kód pre Arduino](https://i.imgur.com/deIM0J9.png)
+![Vývoj teploty - DHT22 + SHT21 + BME280 - Arduino](https://i.imgur.com/ypwaPU7.png)
+![Vývoj teploty na OneWire zbernici - časozber - Arduino](https://i.imgur.com/E4AaeL6.png)
