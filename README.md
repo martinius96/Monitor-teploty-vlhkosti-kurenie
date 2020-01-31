@@ -1,4 +1,14 @@
 # Monitor teplôt, vlhkostí, ovládanie ventilov - dokumentácia
+# MODUL 1 - BYT - Vývody - Arduino Mega 2560
+| Zbernica | Vývod |
+| --- | --- |
+| I2C | SDA, SCL (Hardware) |
+| Digital (DHT22) | D2 |
+| Digital (DHT22) | D3 |
+| OneWire A | D5 |
+| OneWire B | D6 |
+| OneWire C | D7 |
+| OneWire D | D8 |
 
 # MODUL 1 - BYT - Senzory a zbernice
 | Číslo senzora | Miesto | Typ | Záznam | Zbernica |
@@ -15,6 +25,21 @@
 | 10 | Kuchyňa | DS18B20 | Teplota | OneWire B |
 | 11 | JZ - Atrium| DS18B20-X | Teplota | OneWire C |
 | 12 | SV - Ulica | DS18B20-X | Teplota | OneWire D |
+
+
+
+
+
+# MODUL 2 - KOTOLŇA - Vývody - Arduino Mega 2560
+| Zbernica | Vývod |
+| --- | --- |
+| OneWire A | D22 |
+| OneWire B | D23 |
+| OneWire C | D24 |
+| OneWire D | D25 |
+| OneWire E | D26 |
+| OneWire F | D27 |
+| OneWire G | D28 |
 
 # MODUL 2 - KOTOLŇA - Senzory a zbernice
 | Číslo senzora | Miesto | Typ | Záznam | Zbernica |
