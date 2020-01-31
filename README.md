@@ -1,4 +1,4 @@
-# Monitor teplôt, vlhkostí, ovládanie ventilov radiátorov
+# Monitor teplôt, vlhkostí, ovládanie ventilov - dokumentácia
 
 # MODUL 1 - BYT - Senzory a zbernice
 | Číslo senzora | Miesto | Typ | Záznam | Zbernica |
