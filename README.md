@@ -26,7 +26,8 @@
 | 11 | JZ - Atrium| DS18B20-X | Teplota | OneWire C |
 | 12 | SV - Ulica | DS18B20-X | Teplota | OneWire D |
 
-
+# MODUL 1 - BYT - Schéma zapojenia
+![MODUL 1 - BYT - Schéma zapojenia pre Arduino](https://raw.githubusercontent.com/martinius96/Monitor-teploty-vlhkosti-kurenie/master/SCHEMA_BYT_MODUL_1.png)
 
 
 
@@ -60,3 +61,6 @@
 | 14 | KOMIN 2 | DS18B20-X | Teplota | OneWire G |
 | 15 | Bojler VRCH | DS18B20-X | Teplota | OneWire G |
 | 16 | Bojler STRED | DS18B20-X | Teplota | OneWire G |
+
+# MODUL 2 - KOTOLŇA - Schéma zapojenia
+![MODUL 2 - KOTOLŇA - Schéma zapojenia pre Arduino](https://raw.githubusercontent.com/martinius96/Monitor-teploty-vlhkosti-kurenie/master/SCHEMA_KOTOLNA_MODUL_2.png)
