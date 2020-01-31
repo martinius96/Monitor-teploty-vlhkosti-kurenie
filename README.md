@@ -11,7 +11,7 @@
 | OneWire D | D8 |
 
 # MODUL 1 - BYT - Senzory a zbernice
-| Číslo senzora | Miesto | Typ | Záznam | Zbernica |
+| Číslo | Miesto | Typ | Záznam | Zbernica |
 | --- | --- | --- | --- | --- |
 | 1 | Obývačka | SHT21 | Teplota + vlhkosť | I2C |
 | 2 | Obývačka | BME280 | Teplota + vlhkosť | I2C |
@@ -41,9 +41,25 @@
 | OneWire E | D26 |
 | OneWire F | D27 |
 | OneWire G | D28 |
+| OUT1 | D29 |
+| OUT2 | D30 |
+| OUT3 | D31 |
+| OUT4 | D32 |
+| OUT5 | D33 |
+| OUT6 | D34 |
+| OUT7 | D35 |
+| OUT8 | D36 |
+| IN1 | D37 |
+| IN2 | D38 |
+| IN3 | D39 |
+| IN4 | D40 |
+| IN5 | D41 |
+| IN6 | D42 |
+| IN7 | D43 |
+| IN8 | D44 |
 
 # MODUL 2 - KOTOLŇA - Senzory a zbernice
-| Číslo senzora | Miesto | Typ | Záznam | Zbernica |
+| Číslo | Miesto | Typ | Záznam | Zbernica |
 | --- | --- | --- | --- | --- |
 | 1 | BYT #1 IN | DS18B20-X | Teplota | OneWire A |
 | 2 | BYT #1 OUT | DS18B20-X | Teplota | OneWire A |
@@ -61,6 +77,22 @@
 | 14 | KOMIN 2 | DS18B20-X | Teplota | OneWire G |
 | 15 | Bojler VRCH | DS18B20-X | Teplota | OneWire G |
 | 16 | Bojler STRED | DS18B20-X | Teplota | OneWire G |
+| 17 | Termostat byt #1 | Digitálny vstup | IN1 | Digital |
+| 18 | Termostat byt #2 | Digitálny vstup | IN2 | Digital |
+| 19 | Termostat byt #3 | Digitálny vstup | IN3 | Digital |
+| 20 | Termostat byt #4 | Digitálny vstup | IN4 | Digital |
+| 21 | Termostat byt #5 | Digitálny vstup | IN5 | Digital |
+| 22 | Termostat byt #6 | Digitálny vstup | IN6 | Digital |
+| 23 | Termostat byt #7 | Digitálny vstup | IN7 | Digital |
+| 24 | Termostat byt #8 | Digitálny vstup | IN8 | Digital |
+| 25 | Čerpadlo byt #1 | Digitálny výstup | OUT1 | Digital |
+| 26 | Čerpadlo byt #2 | Digitálny výstup | OUT2 | Digital |
+| 27 | Čerpadlo byt #3 | Digitálny výstup | OUT3 | Digital |
+| 28 | Čerpadlo byt #4 | Digitálny výstup | OUT4 | Digital |
+| 29 | Čerpadlo byt #5 | Digitálny výstup | OUT5 | Digital |
+| 30 | Čerpadlo byt #6 | Digitálny výstup | OUT6 | Digital |
+| 31 | Čerpadlo byt #7 | Digitálny výstup | OUT7 | Digital |
+| 32 | Čerpadlo byt #8 | Digitálny výstup | OUT8 | Digital |
 
 # MODUL 2 - KOTOLŇA - Schéma zapojenia
 ![MODUL 2 - KOTOLŇA - Schéma zapojenia pre Arduino](https://raw.githubusercontent.com/martinius96/Monitor-teploty-vlhkosti-kurenie/master/SCHEMA_KOTOLNA_MODUL_2.png)
