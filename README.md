@@ -1,6 +1,11 @@
 # Monitor teplôt, vlhkostí, ovládanie ventilov - dokumentácia
-* **OneWire zapojenie**
+* **OneWire zapojenie - všeobecné**
 ![OneWire zapojenie](https://www.tweaking4all.com/wp-content/uploads/2014/03/ds18b20-normal-power.jpg)
+* **DHT22 zapojenie - všeobecné**
+![DHT22 zapojenie](https://i.imgur.com/Dle1UqD.png)
+* **BME280 & SHT21 zapojenie - všeobecné**
+![BME280 & SHT21 zapojenie](https://i.imgur.com/H8PTx7g.png)
+* **Popis:**
 * Systém využíva 2x Arduino Mega 2560 s 2x Ethernet shieldmi Wiznet W5100
 * **Modul 1 - BYT** je monitorovací modul, ktorý sníma teploty na jednom z poschodí domov, využíva 4 OneWire zbernice, 2 senzory na I2C zbernici a 2 senzory na digitálnych vývodoch
 * **Modul 2 - KOTOLŇA** je monitorovací a riadiaci, ktorý okrem snímania teplôt na 7 OneWire zberniciach ovláda aj nezávisle na kúrení v domácnosti ventily radiátorov - solenoidy, napríklad prostredníctvom relé. Riadenie je nastavené manuálne - natvrdo ZAP/VYP pre každý solenoid, alebo automaticky na základe nameranej teploty z riadiaceho teplomera (navolí používateľ) z modulu 2. Načítava stav 8 vstupov (5V).
