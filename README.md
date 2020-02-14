@@ -17,8 +17,8 @@
 # MODUL 1 - BYT - Senzory a zbernice
 | Číslo | Miesto | Typ | Záznam | Zbernica |
 | --- | --- | --- | --- | --- |
-| 1 | Obývačka | SHT21 | Teplota + vlhkosť | I2C |
-| 2 | Obývačka | BME280 | Teplota + vlhkosť | I2C |
+| 1 | Obývačka | SHT21 (3.3V!) | Teplota + vlhkosť | I2C |
+| 2 | Obývačka | BME280 (3.3V!) | Teplota + vlhkosť | I2C |
 | 3 | Kúpelňa | DHT22 | Teplota + vlhkosť | Digital |
 | 4 | Kúpelňa | DHT22 | Teplota + vlhkosť | Digital |
 | 5 | Šatník | DS18B20 | Teplota | OneWire A |
