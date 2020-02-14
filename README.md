@@ -1,6 +1,8 @@
 # Monitor teplôt, vlhkostí, ovládanie ventilov - dokumentácia
+* **OneWire pinout**
+![OneWire pinout](https://i.imgur.com/IeVkEgU.png)
 * **OneWire zapojenie - všeobecné**
-![OneWire zapojenie](https://www.tweaking4all.com/wp-content/uploads/2014/03/ds18b20-normal-power.jpg)
+![OneWire zapojenie](https://i.imgur.com/RC3wu89.png)
 * **DHT22 zapojenie - všeobecné**
 ![DHT22 zapojenie](https://i.imgur.com/Dle1UqD.png)
 * **BME280 & SHT21 zapojenie - všeobecné**
