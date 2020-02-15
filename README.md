@@ -1,11 +1,11 @@
 # Monitor teplôt, vlhkostí, ovládanie ventilov - dokumentácia
 * **OneWire pinout**
 * ![OneWire pinout](https://i.imgur.com/IeVkEgU.png)
-* **OneWire zapojenie - všeobecné**
+* **OneWire zapojenie - všeobecné - Vcc = 5V**
 * ![OneWire zapojenie](https://i.imgur.com/RC3wu89.png)
-* **DHT22 zapojenie - všeobecné**
+* **DHT22 zapojenie - všeobecné - Vcc = 5V**
 * ![DHT22 zapojenie](https://i.imgur.com/Dle1UqD.png)
-* **BME280 & SHT21 zapojenie - všeobecné**
+* **BME280 & SHT21 zapojenie - všeobecné - Vcc = 3.3V**
 * ![BME280 & SHT21 zapojenie](https://i.imgur.com/H8PTx7g.png)
 * **Popis:**
 * Systém využíva 2x Arduino Mega 2560 s 2x Ethernet shieldmi Wiznet W5100
