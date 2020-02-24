@@ -1,7 +1,7 @@
 //Modul: Kotolna (číslo 2)
 //Autor: Martin Chlebovec
 //Hardver: Arduino Mega 2560 + Ethernet Wiznet W5100
-//Revizia: 21. Jan. 2020
+//Revizia: 24. Feb. 2020
 
 #include <avr\wdt.h>
 #include <SPI.h>
@@ -122,12 +122,12 @@ void odosli_data_vstupy() {
 
   //FORMOVANIE PAYLOAD-U A ODOSIELANIE PO HTTP POST
   String data = "vstup1=" + hodnota1 + "&vstup2=" + hodnota2 + "&vstup3=" + hodnota3 + "&vstup4=" + hodnota4 + "&vstup5=" + hodnota5 + "&vstup6=" + hodnota6 + "&vstup7=" + hodnota7 + "&vstup8=" + hodnota8;
-  String url = "/daxville/system/arduino/zapisvstupov.php";
+  String url = "/system/arduino/zapisvstupov.php";
   client.stop();
   if (client.connect(host, 80)) {
     Serial.println("Odosielam data na webserver");
     client.println("POST " + url + " HTTP/1.0");
-    client.println("Host: www.host.sk");
+    client.println("Host: " + String(host));
     client.println("User-Agent: ArduinoEthernet");
     client.println("Connection: close");
     client.println("Content-Type: application/x-www-form-urlencoded;");
@@ -184,12 +184,12 @@ void odosli_data() {
 
   //FORMOVANIE PAYLOAD-U A ODOSIELANIE PO HTTP POST
   String data = "teplota1=" + teplota1 + "&teplota2=" + teplota2 + "&teplota3=" + teplota3 + "&teplota4=" + teplota4 + "&teplota5=" + teplota5 + "&teplota6=" + teplota6 + "&teplota7=" + teplota7 + "&teplota8=" + teplota8 + "&teplota9=" + teplota9 + "&teplota10=" + teplota10 + "&teplota11=" + teplota11 + "&teplota12=" + teplota12 + "&teplota13=" + teplota13 + "&teplota14=" + teplota14 + "&teplota15=" + teplota15 + "&teplota16=" + teplota16;
-  String url = "/daxville/system/arduino/zapishodnoty_modul2.php";
+  String url = "/system/arduino/zapishodnoty_modul2.php";
   client.stop();
   if (client.connect(host, 80)) {
     Serial.println("Odosielam data na webserver");
     client.println("POST " + url + " HTTP/1.0");
-    client.println("Host: www.host.sk");
+    client.println("Host: " + String(host));
     client.println("User-Agent: ArduinoEthernet");
     client.println("Connection: close");
     client.println("Content-Type: application/x-www-form-urlencoded;");
@@ -216,7 +216,7 @@ void odosli_data() {
 }
 
 void nastavenie_rele1() {
-  String url = "/daxville/system/arduino/vystupy1.php";
+  String url = "/system/arduino/vystupy1.php";
   client.stop();
   if (client.connect(host, 80)) {
     client.print(String("GET ") + url + " HTTP/1.0\r\n" +
@@ -235,138 +235,189 @@ void nastavenie_rele1() {
     if (line == "0000") {
       digitalWrite(rele1, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, HIGH);
     } else if (line == "0001") {
       digitalWrite(rele1, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, LOW);
     } else if (line == "0010") {
       digitalWrite(rele1, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, HIGH);
     } else if (line == "0011") {
       digitalWrite(rele1, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, LOW);
     } else if (line == "0100") {
       digitalWrite(rele1, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, HIGH);
     } else if (line == "0101") {
       digitalWrite(rele1, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, LOW);
     } else if (line == "0110") {
       digitalWrite(rele1, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, HIGH);
     } else if (line == "0111") {
       digitalWrite(rele1, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, LOW);
     } else if (line == "1000") {
       digitalWrite(rele1, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, HIGH);
     } else if (line == "1001") {
       digitalWrite(rele1, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, LOW);
     } else if (line == "1010") {
       digitalWrite(rele1, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, HIGH);
     } else if (line == "1011") {
       digitalWrite(rele1, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, LOW);
     } else if (line == "1100") {
       digitalWrite(rele1, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, HIGH);
     } else if (line == "1101") {
       digitalWrite(rele1, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, LOW);
     } else if (line == "1110") {
       digitalWrite(rele1, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, HIGH);
     } else if (line == "1111") {
       digitalWrite(rele1, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, LOW);
     } else {
       digitalWrite(rele1, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele2, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele3, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele4, HIGH);
     }
   } else {
@@ -375,7 +426,7 @@ void nastavenie_rele1() {
 }
 
 void nastavenie_rele2() {
-  String url = "/daxville/system/arduino/vystupy2.php";
+  String url = "/system/arduino/vystupy2.php";
   client.stop();
   if (client.connect(host, 80)) {
     client.print(String("GET ") + url + " HTTP/1.0\r\n" +
@@ -394,138 +445,189 @@ void nastavenie_rele2() {
     if (line == "0000") {
       digitalWrite(rele5, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, HIGH);
     } else if (line == "0001") {
       digitalWrite(rele5, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, LOW);
     } else if (line == "0010") {
       digitalWrite(rele5, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, HIGH);
     } else if (line == "0011") {
       digitalWrite(rele5, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, LOW);
     } else if (line == "0100") {
       digitalWrite(rele5, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, HIGH);
     } else if (line == "0101") {
       digitalWrite(rele5, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, LOW);
     } else if (line == "0110") {
       digitalWrite(rele5, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, HIGH);
     } else if (line == "0111") {
       digitalWrite(rele5, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, LOW);
     } else if (line == "1000") {
       digitalWrite(rele5, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, HIGH);
     } else if (line == "1001") {
       digitalWrite(rele5, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, LOW);
     } else if (line == "1010") {
       digitalWrite(rele5, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, HIGH);
     } else if (line == "1011") {
       digitalWrite(rele5, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, LOW);
     } else if (line == "1100") {
       digitalWrite(rele5, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, HIGH);
     } else if (line == "1101") {
       digitalWrite(rele5, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, LOW);
     } else if (line == "1110") {
       digitalWrite(rele5, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, HIGH);
     } else if (line == "1111") {
       digitalWrite(rele5, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, LOW);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, LOW);
     } else {
       digitalWrite(rele5, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele6, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele7, HIGH);
       delay(1000);
+      wdt_reset();
       digitalWrite(rele8, HIGH);
     }
   } else {
