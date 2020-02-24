@@ -1,7 +1,7 @@
 //Modul: Byt (číslo 1)
 //Autor: Martin Chlebovec
 //Hardver: Arduino Mega 2560 + Ethernet Wiznet W5100
-//Revizia: 21. Jan. 2020
+//Revizia: 24. Feb. 2020
 
 #include <avr\wdt.h>
 #include <SPI.h>
@@ -102,12 +102,12 @@ void odosli_data() {
 
   //FORMOVANIE PAYLOAD-U A ODOSIELANIE PO HTTP POST
   String data = "teplota1=" + teplota1 + "&teplota2=" + teplota2 + "&teplota3=" + teplota3 + "&teplota4=" + teplota4 + "&teplota5=" + teplota5 + "&teplota6=" + teplota6 + "&teplota7=" + teplota7 + "&teplota8=" + teplota8 + "&teplota_dht=" + teplota_dht + "&vlhkost_dht=" + vlhkost_dht + "&teplota_dht2=" + teplota_dht2 + "&vlhkost_dht2=" + vlhkost_dht2 + "&teplota_bme280=" + teplota_bme280 + "&vlhkost_bme280=" + vlhkost_bme280 + "&teplota_sht=" + teplota_sht21 + "&vlhkost_sht=" + vlhkost_sht21;
-  String url = "/daxville/system/arduino/zapishodnoty.php";
+  String url = "/system/arduino/zapishodnoty.php";
   client.stop();
   if (client.connect(host, 80)) {
     Serial.println("Odosielam data na webserver");
     client.println("POST " + url + " HTTP/1.0");
-    client.println("Host: www.host.sk");
+    client.println("Host: " + String(host));
     client.println("User-Agent: ArduinoEthernet");
     client.println("Connection: close");
     client.println("Content-Type: application/x-www-form-urlencoded;");
