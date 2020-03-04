@@ -40,7 +40,7 @@
 | 12 | SV - Ulica | DS18B20-X | Teplota | OneWire D |
 
 # MODUL 1 - BYT - Schéma zapojenia
-![MODUL 1 - BYT - Schéma zapojenia pre Arduino](https://raw.githubusercontent.com/martinius96/Monitor-teploty-vlhkosti-kurenie/master/SCHEMA_BYT_MODUL_1.png)
+![MODUL 1 - BYT - Schéma zapojenia pre Arduino](https://i.imgur.com/Xn80erm.png)
 
 
 
@@ -108,7 +108,7 @@
 | 32 | Čerpadlo byt #8 | Digitálny výstup | OUT8 | Digital |
 
 # MODUL 2 - KOTOLŇA - Schéma zapojenia
-![MODUL 2 - KOTOLŇA - Schéma zapojenia pre Arduino](https://raw.githubusercontent.com/martinius96/Monitor-teploty-vlhkosti-kurenie/master/SCHEMA_KOTOLNA_MODUL_2.png)
+![MODUL 2 - KOTOLŇA - Schéma zapojenia pre Arduino](https://i.imgur.com/OpqVrvy.png)
 
 # Screenshoty systému
 ![Snímanie teploty, vykurovanie - Login systém](https://i.imgur.com/mYoOIEX.jpg)
