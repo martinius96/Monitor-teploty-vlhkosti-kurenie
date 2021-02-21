@@ -77,9 +77,9 @@ Webový backend ukladá namerané údaje z mikrokontrólerov Arduino do MySQL da
 Do systému sú integrované dva moduly. Každý z modulov ovláda samostatné Arduino Mega, prihlásený používateľ vidí oba moduly a môže k nim vykonávať akcie z webového rozhrania.
 Systém používa prihlásenie s registráciou a centrálne webové rozhranie pre správu a ovládanie oboch modulov, ktoré v systéme jestvujú. 
 Možnosť meniť prihlasovacie údaje, registrovať nových používateľov s autorizáciou k plnej funkcionalite webovo orientovaného systému.
-<br><b>Modul1:</b>
+<br><b>Modul 1 - BYT:</b>
 <li>Monitor a záznam 4x vlhkosť a 12x teplota (8x DS18B20, 1x SHT21, 1x BME280, 2x DHT22) - 4x OneWire zbernica - rozloženie senzorov na zbernice (2, 4, 1, 1). <b>OneWire zbernice sú v prehľade odlíšené iným farebným pozadím pre jednoznačné rozlíšenie, do ktorej senzory patria</b></li>
-<br><b>Modul 2:</b>
+<br><b>Modul 2 - KOTOLŇA:</b>
 <li>Monitor 16x teplôt (16x DS18B20) - 7x OnxeWire zbernica - rozloženie senzorov na OneWire zbernice (2, 2, 2, 2, 2, 2, 4), 8x IO vstup (voliteľný používateľov) - možno využiť na kontrolu stavov ventilov, ktoré sú ovládané z výstupov (či reálne k otvoreniu / zatvoreniu solenoidu došlo), 8x IO výstup pre solenoidy/relé, ktoré ovládajú ventil radiátora.<li> 
 <li>Každý možno nastaviť na príslušný teplomer danej miestnosti.<li>
 Modul 2 riadi výstupy (v celkovom počte 8 ks) automatickým režimom pre vykurovanie (na spôsob izbového termostatu) s navoleným teplomerom a cieľovou teplotou (bez hysterézy). 
