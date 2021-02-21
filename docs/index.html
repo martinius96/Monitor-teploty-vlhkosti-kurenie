@@ -77,15 +77,14 @@ Webový backend ukladá namerané údaje z mikrokontrólerov Arduino do MySQL da
 Do systému sú integrované dva moduly. Každý z modulov ovláda samostatné Arduino Mega, prihlásený používateľ vidí oba moduly a môže k nim vykonávať akcie z webového rozhrania.
 Systém používa prihlásenie s registráciou a centrálne webové rozhranie pre správu a ovládanie oboch modulov, ktoré v systéme jestvujú. 
 Možnosť meniť prihlasovacie údaje, registrovať nových používateľov s autorizáciou k plnej funkcionalite webovo orientovaného systému.
-
-Modul1:
-Monitor a záznam 4x vlhkosť a 12x teplota (8x DS18B20, 1x SHT21, 1x BME280, 2x DHT22) - 4x OneWire zbernica - rozloženie senzorov na zbernice (2, 4, 1, 1). <b>OneWire zbernice sú v prehľade odlíšené iným farebným pozadím pre jednoznačné rozlíšenie, do ktorej senzory patria</b>
-Modul 2:
-Monitor 16x teplôt (16x DS18B20) - 7x OnxeWire zbernica - rozloženie senzorov na OneWire zbernice (2, 2, 2, 2, 2, 2, 4), 8x IO vstup (voliteľný používateľov) - možno využiť na kontrolu stavov ventilov, ktoré sú ovládané z výstupov (či reálne k otvoreniu / zatvoreniu solenoidu došlo), 8x IO výstup pre solenoidy/relé, ktoré ovládajú ventil radiátora. Každý možno nastaviť na príslušný teplomer danej miestnosti.
+<br><b>Modul1:</b>
+<li>Monitor a záznam 4x vlhkosť a 12x teplota (8x DS18B20, 1x SHT21, 1x BME280, 2x DHT22) - 4x OneWire zbernica - rozloženie senzorov na zbernice (2, 4, 1, 1). <b>OneWire zbernice sú v prehľade odlíšené iným farebným pozadím pre jednoznačné rozlíšenie, do ktorej senzory patria</b></li>
+<br><b>Modul 2:</b>
+<li>Monitor 16x teplôt (16x DS18B20) - 7x OnxeWire zbernica - rozloženie senzorov na OneWire zbernice (2, 2, 2, 2, 2, 2, 4), 8x IO vstup (voliteľný používateľov) - možno využiť na kontrolu stavov ventilov, ktoré sú ovládané z výstupov (či reálne k otvoreniu / zatvoreniu solenoidu došlo), 8x IO výstup pre solenoidy/relé, ktoré ovládajú ventil radiátora.<li> 
+<li>Každý možno nastaviť na príslušný teplomer danej miestnosti.<li>
 Modul 2 riadi výstupy (v celkovom počte 8 ks) automatickým režimom pre vykurovanie (na spôsob izbového termostatu) s navoleným teplomerom a cieľovou teplotou (bez hysterézy). 
 Okrem toho je možné riadiť výstupy tohto moduluaj manuálne ZAP/VYP natvrdo. 
-<b>Modul 2 neovláda kotol!</b> Ovláda iba radiátory, respektíve ich ventily - solenoidy nezávisle na vykurovaní, či aktivite kotla.
-
+<b>Modul 2 neovláda kotol, ani k tomu nie je určený!</b> Ovláda iba radiátory, respektíve ich ventily - solenoidy nezávisle na vykurovaní, či aktivite kotla.
 Webové rozhranie ďalej umožňuje:
 Prezrieť aktuálny stav webservera (konektivita HTTP, spojenie s MySQL databázou).
 Počet záznamov v MySQL databáze každého z modulov.
@@ -591,12 +590,13 @@ Nevyužíva sa Bearer Token / API KEY ani iný typ autentizácie.
 </div>	
 <hr><center><h3>Modul 2 - Kotolňa - Schéma zapojenia</h3></center><hr>	
 <center><img src="https://i.imgur.com/IDW7XSe.png" style="display: block; max-width: 100%; height: auto;" alt="Kotolňa - schéma zapojenia OneWire zberníc - Arduino Mega2560 + Ethernet" title="Kotolňa - schéma zapojenia OneWire zberníc - Arduino Mega2560 + Ethernet"></center>	
-<hr><center><h3>Screenshoty webového rozhrania</h3></center></hr>
+<hr><center><h4>Screenshoty webového rozhrania - Monitor teploty, vlasti v domácnosti - Arduino + Ethernet</h4></center></hr>
 <center>
 <img src="https://i.imgur.com/10J3anU.jpg" style="display: block; max-width: 100%; height: auto;" alt="Monitor domácnosti - Arduino - Prihlásenie používateľa" title="Monitor domácnosti - Arduino - Prihlásenie používateľa">
-<img src="https://i.imgur.com/wVgu0qY.png" style="display: block; max-width: 100%; height: auto;" alt="Monitor domácnosti - Arduino - Vizualizácia dát o teplote, vlhkosti v reálnom čase" title="Monitor domácnosti - Arduino - Vizualizácia dát o teplote, vlhkosti v reálnom čase">
+<img src="https://i.imgur.com/p9fl1Az.png" style="display: block; max-width: 100%; height: auto;" alt="Monitor domácnosti - Arduino - Vizualizácia dát o teplote, vlhkosti v reálnom čase" title="Monitor domácnosti - Arduino - Vizualizácia dát o teplote, vlhkosti v reálnom čase">
 <img src="https://i.imgur.com/W8ur0sd.png" style="display: block; max-width: 100%; height: auto;" alt="Čiarový graf - dáta o teplote z I2C zbernice, senzorov DHT22, SHT21, BME280" title="Čiarový graf - dáta o teplote z I2C zbernice, senzorov DHT22, SHT21, BME280">
 <img src="https://i.imgur.com/7qBSORc.png" style="display: block; max-width: 100%; height: auto;" alt="Zmena názvov miestností, kde sú senzory DS18B20, DHT22, SHT21, BME280 umiestnené" title="Zmena názvov miestností, kde sú senzory DS18B20, DHT22, SHT21, BME280 umiestnené">
+<img src="https://i.imgur.com/2DAnL3E.png" style="display: block; max-width: 100%; height: auto;" alt="Výber a ovládanie výstupu v automatickom / manuálnom režime - Modul 2" title="Výber a ovládanie výstupu v automatickom / manuálnom režime - Modul 2">
 </center>
 	
 	</div>
