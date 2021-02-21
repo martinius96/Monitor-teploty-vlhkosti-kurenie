@@ -3,22 +3,22 @@
 <html lang="sk-SK">
 <head>	
 	<!-- Primary Meta Tags -->
-	<title>Monitor teplôt, vlhkostí v domácnosti - Arduino + Ethernet Wiznet W5100. OneWire a I2C zbernice.</title>
-	<meta name="title" content="Monitor teplôt, vlhkostí v domácnosti - Arduino + Ethernet Wiznet W5100. OneWire a I2C zbernice.">
-	<meta name="description" content="Softvér pre monitorovanie teplôt, vlhkostí s možnosťou ovládania vykurovnaia v domácnosti cez Arduino a Ethernet">
+	<title>Monitor teplôt, vlhkostí v domácnosti - Arduino + Ethernet Wiznet W5100. OneWire Dallas DS18B20 a I2C senzory BME280, SHT21, DHT22.</title>
+	<meta name="title" content="Monitor teplôt, vlhkostí v domácnosti - Arduino + Ethernet Wiznet W5100. OneWire Dallas DS18B20 a I2C senzory BME280, SHT21, DHT22.">
+	<meta name="description" content="Softvér pre monitorovanie teplôt, vlhkostí v domácnosti s možnosťou ovládania ventilov (solenoidov) radiátorov s vizualizáciou do webového rozhrania. Mikrokontróler Arduino Mega + Ethernet Wiznet W5100">
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://martinius96.github.io/Monitor-teploty-vlhkosti-kurenie/">
-	<meta property="og:title" content="Monitor teplôt, vlhkostí v domácnosti - Arduino">
-	<meta property="og:description" content="Softvér pre monitorovanie teplôt, vlhkostí s možnosťou ovládania vykurovnaia v domácnosti cez Arduino a Ethernet">
+	<meta property="og:title" content="Monitor teplôt, vlhkostí v domácnosti - Arduino + Ethernet Wiznet W5100. OneWire Dallas DS18B20 a I2C senzory BME280, SHT21, DHT22.">
+	<meta property="og:description" content="Softvér pre monitorovanie teplôt, vlhkostí v domácnosti s možnosťou ovládania ventilov (solenoidov) radiátorov s vizualizáciou do webového rozhrania. Mikrokontróler Arduino Mega + Ethernet Wiznet W5100">
 	<meta property="og:image" content="">
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="https://martinius96.github.io/Monitor-teploty-vlhkosti-kurenie/">
-	<meta property="twitter:title" content="Monitor teplôt, vlhkostí v domácnosti - Arduino">
-	<meta property="twitter:description" content="Softvér pre monitorovanie teplôt, vlhkostí s možnosťou ovládania vykurovnaia v domácnosti cez Arduino a Ethernet">
+	<meta property="twitter:title" content="Monitor teplôt, vlhkostí v domácnosti - Arduino + Ethernet Wiznet W5100. OneWire Dallas DS18B20 a I2C senzory BME280, SHT21, DHT22.">
+	<meta property="twitter:description" content="Softvér pre monitorovanie teplôt, vlhkostí v domácnosti s možnosťou ovládania ventilov (solenoidov) radiátorov s vizualizáciou do webového rozhrania. Mikrokontróler Arduino Mega + Ethernet Wiznet W5100">
 	<meta property="twitter:image" content="">
 	<meta name="robots" content="index, follow">
 	<link rel="icon" type="image/png" href="favicon.png">
@@ -42,12 +42,12 @@
 <body>
 	<div class="container">
   		<div class="row">
-    			<div class="col-sm-12">
-				<div class="alert alert-success">
-					<strong>Projekt k repozitáru - Github: </strong><a href="https://github.com/martinius96/Monitor-teploty-vlhkosti-kurenie/">Monitor teplôt vlhkostí</a>
-				</div>	
+<div class="col-sm-12">
+<div class="alert alert-success">
+	<strong>Projekt k repozitáru - Github: </strong><a href="https://github.com/martinius96/Monitor-teploty-vlhkosti-kurenie/">Monitor teplôt vlhkostí</a>
+</div>	
 <div class='alert alert-danger'>
-Pri záujme o vyskúšanie webového rozhrania s vašim hardvérom kontaktovať na: <strong>martinius96@gmail.com</strong>
+	Pri záujme o vyskúšanie webového rozhrania s vašim hardvérom kontaktovať na: <strong>martinius96@gmail.com</strong>
 </div>			
 <span class="label label-default">Arduino</span>
 <span class="label label-primary">Ethernet</span>
@@ -57,32 +57,47 @@ Pri záujme o vyskúšanie webového rozhrania s vašim hardvérom kontaktovať 
 <span class="label label-danger">Kúrenie</span>
 <span class="label label-default">PHP</span>
 <span class="label label-primary">MySQL</span>
-<hr><center><h3>Hardvér pre projekt - Riadiaci + prenosová technológia Ethernet</h3></center><hr>
+<hr><center><h3>Hardvér pre projekt - Riadiaci mikrokontróler + prenosová technológia Ethernet</h3></center><hr>
 <div class="row">
-  <div class="col-sm-6"><center><img src="https://i.imgur.com/YFYkAc0.png" width="128px" height="128px" style="border-radius: 50%;" alt="Riadiaci mikrokontróler Arduino Mega 2560" title="Riadiaci mikrokontróler Arduino Mega 2560"></center></div>
-  <div class="col-sm-6"><center><img src="https://i.imgur.com/aaS35X2.png" width="128px" height="128px" style="border-radius: 50%;" alt="Ethernet shield Wiznet W5100" title="Ethernet shield Wiznet W5100"></center></div>
+  <div class="col-sm-6"><center><img src="https://i.imgur.com/YFYkAc0.png" width="128px" height="128px" style="border-radius: 50%;" alt="Riadiaci mikrokontróler Arduino Mega 2560" title="Riadiaci mikrokontróler Arduino Mega 2560"><br><b>Arduino Mega 2560</b></center></div>
+  <div class="col-sm-6"><center><img src="https://i.imgur.com/aaS35X2.png" width="128px" height="128px" style="border-radius: 50%;" alt="Ethernet shield Wiznet W5100" title="Ethernet shield Wiznet W5100"><br><b>Ethernet Wiznet W5100</b></center></div>
 </div>	
 <hr><center><h3>Použité senzory v projekte pre záznam údajov</h3></center><hr>
 <div class="row">
-  <div class="col-sm-2"><center><img src="https://i.imgur.com/sMrQ8Es.png" width="128px" height="128px" style="border-radius: 50%;" alt="Teplotný senzor DS18B20 v puzdre TO-92" title="Teplotný senzor DS18B20 v puzdre TO-92"></center></div>
-  <div class="col-sm-2"><center><img src="https://i.imgur.com/FNWTjFE.png" width="128px" height="128px" style="border-radius: 50%;" alt="Teplotný senzor DS18B20 - vodotesné vyhotovenie" title="Teplotný senzor DS18B20 - vodotesné vyhotovenie"></center></div>
-  <div class="col-sm-4"><center><img src="https://i.imgur.com/NUIlz6c.png" width="128px" height="128px" style="border-radius: 50%;" alt="Senzor teploty a vlhkosti - DHT22 (AM2302)" title="Senzor teploty a vlhkosti - DHT22 (AM2302)"></center></div>
-  <div class="col-sm-2"><center><img src="https://i.imgur.com/oSMNvDP.png" width="128px" height="128px" style="border-radius: 50%;" alt="Senzor teploty a vlhkosti - Bosch BME280" title="Senzor teploty a vlhkosti - Bosch BME280"></center></div>
-  <div class="col-sm-2"><center><img src="https://i.imgur.com/vrVN9Y0.png" width="128px" height="128px" style="border-radius: 50%;" alt="Senzor teploty a vlhkosti - Sensirion SHT21" title="Senzor teploty a vlhkosti - Sensirion SHT21"></center></div>
+  <div class="col-sm-2"><center><img src="https://i.imgur.com/sMrQ8Es.png" width="128px" height="128px" style="border-radius: 50%;" alt="Teplotný senzor DS18B20 v puzdre TO-92" title="Teplotný senzor DS18B20 v puzdre TO-92"><br><b>DS18B20 - TO-92</b></center></div>
+  <div class="col-sm-2"><center><img src="https://i.imgur.com/FNWTjFE.png" width="128px" height="128px" style="border-radius: 50%;" alt="Teplotný senzor DS18B20 - vodotesné vyhotovenie" title="Teplotný senzor DS18B20 - vodotesné vyhotovenie"><br><b>DS18B20 - vodotesný</b></center></div>
+  <div class="col-sm-4"><center><img src="https://i.imgur.com/NUIlz6c.png" width="128px" height="128px" style="border-radius: 50%;" alt="Senzor teploty a vlhkosti - DHT22 (AM2302)" title="Senzor teploty a vlhkosti - DHT22 (AM2302)"><br><b>DHT22</b></center></div>
+  <div class="col-sm-2"><center><img src="https://i.imgur.com/oSMNvDP.png" width="128px" height="128px" style="border-radius: 50%;" alt="Senzor teploty a vlhkosti - Bosch BME280" title="Senzor teploty a vlhkosti - Bosch BME280"><br><b>Bosch BME280</b></center></div>
+  <div class="col-sm-2"><center><img src="https://i.imgur.com/vrVN9Y0.png" width="128px" height="128px" style="border-radius: 50%;" alt="Senzor teploty a vlhkosti - Sensirion SHT21" title="Senzor teploty a vlhkosti - Sensirion SHT21"><br><b>Sensirion SHT21</b></center></div>
 </div>				
 <hr><center><h3>Monitor teplôt, vlhkostí, vstupov a výstupov v domácnosti</h3></center><hr>
-<h4>Moduly systému:</h4>
-<li><b>Modul 1 - Byt</b> - Záznam 12x teplota (2x DHT22, 1x BME280, 1x SHT21, 8x DS18B20 [4x OneWire zbernica]), 4x vlhkosť vzduchu (2x DHT22, 1x BME280, 1x SHT21) - komunikácia po OneWire, I2C zbernici</li>
-<li><b>Modul 2 - Kotolňa</b> - Záznam 16x teplota (16x DS18B20 [7x OneWire zbernica]), 8x digitálny vstup (5V), 8x digitálny výstup (5V) - komunikácia so senzormi po OneWire zbernici</li>
-<h4>Webové rozhranie:</h4>
-<li>Moduly sú integrované do webového rozhrania, kde sú dáta z modulov vizualizované používateľovi spoločne s login systémom.</li>
-<li>Webové rozhranie umožňuje ukladanie dát z jednotlivých modulov do MySQL databázy.</li>
-<li>Používateľ môže na stránke zmeniť názvy jednotlivých miestností, kde sú senzory umiestnené.</li>
-<li>Výstupy je možné riadiť v manuálnom a automatickom režime na základe cieľovej teploty z riadiaceho teplomera.</li>
-<li>Výstupy umožňujú ovládať solenoidové ventily radiátorov prostredníctvom relé.</li>
-<li>Webové rozhranie vizualizuje namerané dáta za 24 hodín, 7 dní, vizualizácia maximálnych, minimálnych, priemerných hodnôt za 24 hodín / 7 dní.</li>
-<li>Zdrojové kódy pre jednotlivé moduly a mikrokontroléry Arduino Mega 2560 sú uložené vo webovom rozhraní a prístupné prihlásenému používateľovi.</li>
-<li>Arduiná komunikujú s webovým rozhraním skrz Ethernet shield Wiznet W5100 po HTTP protokole a dáta predáva webovému rozhraniu metódou POST.</li>
+<p style="text-align: justify;">
+Systém postavený na webovom rozhraní v PHP, ktoré prijíma dáta z mikrokontrolérov Arduino Mega 2560 + Ethernet Wizet W5100 shield a ponúka vizualizácie autorizovanému používateľovi, ktorý sa do systému prihlási.
+Webový backend ukladá namerané údaje z mikrokontrólerov Arduino do MySQL databázy v minútových intervaloch.
+Do systému sú integrované dva moduly. Každý z modulov ovláda samostatné Arduino Mega, prihlásený používateľ vidí oba moduly a môže k nim vykonávať akcie z webového rozhrania.
+Systém používa prihlásenie s registráciou a centrálne webové rozhranie pre správu a ovládanie oboch modulov, ktoré v systéme jestvujú. 
+Možnosť meniť prihlasovacie údaje, registrovať nových používateľov s autorizáciou k plnej funkcionalite webovo orientovaného systému.
+
+Modul1:
+Monitor a záznam 4x vlhkosť a 12x teplota (8x DS18B20, 1x SHT21, 1x BME280, 2x DHT22) - 4x OneWire zbernica - rozloženie senzorov na zbernice (2, 4, 1, 1). <b>OneWire zbernice sú v prehľade odlíšené iným farebným pozadím pre jednoznačné rozlíšenie, do ktorej senzory patria</b>
+Modul 2:
+Monitor 16x teplôt (16x DS18B20) - 7x OnxeWire zbernica - rozloženie senzorov na OneWire zbernice (2, 2, 2, 2, 2, 2, 4), 8x IO vstup (voliteľný používateľov) - možno využiť na kontrolu stavov ventilov, ktoré sú ovládané z výstupov (či reálne k otvoreniu / zatvoreniu solenoidu došlo), 8x IO výstup pre solenoidy/relé, ktoré ovládajú ventil radiátora. Každý možno nastaviť na príslušný teplomer danej miestnosti.
+Modul 2 riadi výstupy (v celkovom počte 8 ks) automatickým režimom pre vykurovanie (na spôsob izbového termostatu) s navoleným teplomerom a cieľovou teplotou (bez hysterézy). 
+Okrem toho je možné riadiť výstupy tohto moduluaj manuálne ZAP/VYP natvrdo. 
+<b>Modul 2 neovláda kotol!</b> Ovláda iba radiátory, respektíve ich ventily - solenoidy nezávisle na vykurovaní, či aktivite kotla.
+
+Webové rozhranie ďalej umožňuje:
+Prezrieť aktuálny stav webservera (konektivita HTTP, spojenie s MySQL databázou).
+Počet záznamov v MySQL databáze každého z modulov.
+Zmena názvov každého vstupu/výstupu, teplomera, vlhkomera. 
+V reálnom čase dokáže systém vizualizovať posledné namerané dáta pre používateľa aj s časovou značkou. 
+Štatistika nameraných údajov historicky v tabuľke, v grafickej vizualizácii čiarovými grafmi za 24h / 7 dní / 30 dní.
+Reprezentácia v budíkových (gauge) vizualizáciách - priemer nameraných údajov, maximá a minimá za 24h, 7 dní, 30 dní. 
+Výpis a zmazanie logu systému, ktorý ukladajá dáta o chybných senzoroch, chybne nameraných dátach, zdrojové kódy pre obe Arduino dosky priamo vo webovom rozhraní, ktoré vygeneruje zdrojový kód podľa adresy webservera a umiestnenia súboru.
+Systém funguje na HTTP protokole, ktorý obe Arduino dosky podporujú, HTTPS nie je možné využiť, nakoľko ho Arduino dosky nepodporujú a nemajú dostatočný výkon pre kryptografické výpočty. 
+Arduiná posielajú dáta ako HTTP POST request na webserver. PHP je validné pre verzie 5.6 i 7+. Vo webovom rozhraní sú dostupné aj schémy zapojenia s popisom jednotlivých zberníc, zdrojové kódy pre tieto mikrokontroléry (nakoľko sa využíva viacero zberníc na OneWire, schéma je o niečo zložitejšia, možno nie vhodné pre úplného laika.) Zdrojové kódy sú vygenerované webserverom na základe toho, na akej doméne je táto .php podstránka spustená. Zdrojový kód tak stačí nahrať a uvidíte dáta na tomto webovom rozhraní. Možno použiť DHCP (default) / statickú IPv4 v LAN sieti pre konektivitu.
+Nevyužíva sa Bearer Token / API KEY ani iný typ autentizácie.
+</p>
 <div class="alert alert-success">
   <strong>Moduly fungujú nezávisle na sebe.</strong> Výpadok modulu ochromí iba daný modul, nie celý webový systém.
 </div>
