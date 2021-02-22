@@ -87,20 +87,23 @@ Možnosť meniť prihlasovacie údaje, registrovať nových používateľov s au
 <br><b>Modul 2 - KOTOLŇA:</b>
 <li>Monitor 16x teplôt (16x DS18B20) - 7x OnxeWire zbernica - rozloženie senzorov na OneWire zbernice (2, 2, 2, 2, 2, 2, 4), 8x IO vstup (voliteľný používateľov) - možno využiť na kontrolu stavov ventilov, ktoré sú ovládané z výstupov (či reálne k otvoreniu / zatvoreniu solenoidu došlo), 8x IO výstup pre solenoidy/relé, ktoré ovládajú ventil radiátora.<li> 
 <li>Každý možno nastaviť na príslušný teplomer danej miestnosti.<li>
+<br>
 Modul 2 riadi výstupy (v celkovom počte 8 ks) automatickým režimom pre vykurovanie (na spôsob izbového termostatu) s navoleným teplomerom a cieľovou teplotou (bez hysterézy). 
 Okrem toho je možné riadiť výstupy tohto moduluaj manuálne ZAP/VYP natvrdo. 
 <b>Modul 2 neovláda kotol, ani k tomu nie je určený!</b> Ovláda iba radiátory, respektíve ich ventily - solenoidy nezávisle na vykurovaní, či aktivite kotla.
-Webové rozhranie ďalej umožňuje:
-Prezrieť aktuálny stav webservera (konektivita HTTP, spojenie s MySQL databázou).
-Počet záznamov v MySQL databáze každého z modulov.
-Zmena názvov každého vstupu/výstupu, teplomera, vlhkomera. 
-V reálnom čase dokáže systém vizualizovať posledné namerané dáta pre používateľa aj s časovou značkou. 
-Štatistika nameraných údajov historicky v tabuľke, v grafickej vizualizácii čiarovými grafmi za 24h / 7 dní / 30 dní.
-Reprezentácia v budíkových (gauge) vizualizáciách - priemer nameraných údajov, maximá a minimá za 24h, 7 dní, 30 dní. 
-Výpis a zmazanie logu systému, ktorý ukladajá dáta o chybných senzoroch, chybne nameraných dátach, zdrojové kódy pre obe Arduino dosky priamo vo webovom rozhraní, ktoré vygeneruje zdrojový kód podľa adresy webservera a umiestnenia súboru.
-Systém funguje na HTTP protokole, ktorý obe Arduino dosky podporujú, HTTPS nie je možné využiť, nakoľko ho Arduino dosky nepodporujú a nemajú dostatočný výkon pre kryptografické výpočty. 
-Arduiná posielajú dáta ako HTTP POST request na webserver. PHP je validné pre verzie 5.6 i 7+. Vo webovom rozhraní sú dostupné aj schémy zapojenia s popisom jednotlivých zberníc, zdrojové kódy pre tieto mikrokontroléry (nakoľko sa využíva viacero zberníc na OneWire, schéma je o niečo zložitejšia, možno nie vhodné pre úplného laika.) Zdrojové kódy sú vygenerované webserverom na základe toho, na akej doméne je táto .php podstránka spustená. Zdrojový kód tak stačí nahrať a uvidíte dáta na tomto webovom rozhraní. Možno použiť DHCP (default) / statickú IPv4 v LAN sieti pre konektivitu.
-Nevyužíva sa Bearer Token / API KEY ani iný typ autentizácie.
+<br><b>Webové rozhranie ďalej umožňuje:</b>
+<li>Prezrieť aktuálny stav webservera (konektivita HTTP, spojenie s MySQL databázou).</li>
+<li>Počet záznamov v MySQL databáze každého z modulov.</li>
+<li>Zmena názvov každého vstupu/výstupu, teplomera, vlhkomera. </li>
+<li>V reálnom čase dokáže systém vizualizovať posledné namerané dáta pre používateľa aj s časovou značkou. </li>
+<li>Štatistika nameraných údajov historicky v tabuľke, v grafickej vizualizácii čiarovými grafmi za 24h / 7 dní / 30 dní.</li>
+<li>Reprezentácia v budíkových (gauge) vizualizáciách - priemer nameraných údajov, maximá a minimá za 24h, 7 dní, 30 dní. </li>
+<li>Výpis a zmazanie logu systému, ktorý ukladajá dáta o chybných senzoroch, chybne nameraných dátach, zdrojové kódy pre obe Arduino dosky priamo vo webovom rozhraní, ktoré vygeneruje zdrojový kód podľa adresy webservera a umiestnenia súboru.</li>
+<li>Systém funguje na HTTP protokole, ktorý obe Arduino dosky podporujú, HTTPS nie je možné využiť, nakoľko ho Arduino dosky nepodporujú a nemajú dostatočný výkon pre kryptografické výpočty. </li>
+<li>Arduiná posielajú dáta ako HTTP POST request na webserver. PHP je validné pre verzie 5.6 i 7+.</li> 
+<li>Vo webovom rozhraní sú dostupné aj schémy zapojenia s popisom jednotlivých zberníc, zdrojové kódy pre tieto mikrokontroléry (nakoľko sa využíva viacero zberníc na OneWire, schéma je o niečo zložitejšia, možno nie vhodné pre úplného laika.) Zdrojové kódy sú vygenerované webserverom na základe toho, na akej doméne je táto .php podstránka spustená.</li> 
+<li>Zdrojový kód tak stačí nahrať a uvidíte dáta na tomto webovom rozhraní. Možno použiť DHCP (default) / statickú IPv4 v LAN sieti pre konektivitu.</li>
+<li>Nevyužíva sa Bearer Token / API KEY ani iný typ autentizácie.</li>
 </p>
 <div class="alert alert-success">
   <strong>Moduly fungujú nezávisle na sebe.</strong> Výpadok modulu ochromí iba daný modul, nie celý webový systém.
