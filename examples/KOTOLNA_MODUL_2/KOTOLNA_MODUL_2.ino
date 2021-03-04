@@ -678,7 +678,7 @@ void nastavenie_rele2() {
       wdt_reset();
       digitalWrite(rele8, HIGH);
     }
-    Serial.println(F("Prve 4 vystupy boli synchronizovane a nastavene zo servera"));
+    Serial.println(F("Druhe 4 vystupy boli synchronizovane a nastavene zo servera"));
   } else {
     Serial.println(F("Problem s pripojenim na webserver - Nepodarilo sa ziskat druhe 4 vystupy"));
   }
