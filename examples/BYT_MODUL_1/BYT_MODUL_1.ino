@@ -1,7 +1,16 @@
 //Modul: Byt (číslo 1)
 //Autor: Martin Chlebovec
 //Hardver: Arduino Mega 2560 + Ethernet Wiznet W5100
-//Revizia: 24. Feb. 2020
+//Revizia: 4. Mar. 2021
+//Zapojenie:
+
+//Sumár úprav revízie:
+//Prehľadnejší program, presunutie definicie funkcie pod loop
+//Deklaracia pred setupom
+//Casovanie requestu cez millis() - presnejsie ako delay, nezastavuje program
+//Osetrene pretecenie millis() pouzitim unsigned long premennej timer
+//Navysenie casu po vyzadani dat z Onewire zbernic. Pôvodne 1 sekunda, teraz 5 sekund
+//Staticke stringy do F makra - ulozenie do flash, nezaberaju RAM
 
 #include <avr\wdt.h>
 #include <SPI.h>
@@ -45,7 +54,10 @@ IPAddress gateway(192, 168, 0, 1);
 IPAddress subnet(255, 255, 255, 0);
 IPAddress ip(192, 168, 0, 45);
 EthernetClient client;
-const int pauza = 30; //v sekundach
+
+unsigned long timer = 0;
+void odosli_data();
+
 void setup() {
   //INICIALIZACIA ONEWIRE, SHT21, BME280 A DHT22 SENZOROV
   sensorsA.begin();
@@ -59,13 +71,29 @@ void setup() {
   dht2.begin();
   Serial.begin(115200);
   if (Ethernet.begin(mac) == 0) {
-    Serial.println("Chyba konfiguracie, manualne nastavenie");
+    Serial.println(F("Chyba konfiguracie, manualne nastavenie"));
     Ethernet.begin(mac, ip, dnServer, gateway, subnet);
   }
-  Serial.print("  DHCP assigned IP ");
+  Serial.print(F("Nastavena IP adresa: "));
   Serial.println(Ethernet.localIP());
   wdt_enable(WDTO_8S);
 }
+
+void loop() {
+  //ETHERNET DROP FIX
+  if (Ethernet.begin(mac) == 0) {
+    Serial.println(F("Chyba konfiguracie, manualne nastavenie"));
+    wdt_reset();
+    Ethernet.begin(mac, ip, dnServer, gateway, subnet);
+  }
+  wdt_reset();
+  if ((millis() - timer) >= 30000 || timer == 0) { //casovanie kazdych 30 sekund (30000 ms)
+    timer = millis();
+    //Ethernet.maintain(); //z dokumentacie Ethernet sa moze pouzit, ak sa pouziva DHCP - nie static IP, robi renew IP adresy (moze robit bordel)
+    odosli_data();
+  }
+}
+
 void odosli_data() {
   //MERANIA, DATA OD SENZOROV
   sensorsA.requestTemperatures();
@@ -76,7 +104,11 @@ void odosli_data() {
   sensors_event_t event;
   dht.temperature().getEvent(&event);
   wdt_reset();
-  delay(1000);
+  for (int i = 0; i <= 5; i++) {
+    delay(1000);
+    wdt_reset();
+  }
+  wdt_reset();
   String teplota1 = String(sensorsA.getTempCByIndex(0));
   String teplota2 = String(sensorsA.getTempCByIndex(1));
   String teplota3 = String(sensorsB.getTempCByIndex(0));
@@ -105,47 +137,32 @@ void odosli_data() {
   String url = "/system/arduino/zapishodnoty.php";
   client.stop();
   if (client.connect(host, 80)) {
-    Serial.println("Odosielam data na webserver");
+    Serial.println(F("Odosielam data na webserver"));
     client.println("POST " + url + " HTTP/1.0");
     client.println("Host: " + String(host));
-    client.println("User-Agent: ArduinoEthernet");
-    client.println("Connection: close");
-    client.println("Content-Type: application/x-www-form-urlencoded;");
-    client.print("Content-Length: ");
+    client.println(F("User-Agent: ArduinoEthernet"));
+    client.println(F("Connection: close"));
+    client.println(F("Content-Type: application/x-www-form-urlencoded;"));
+    client.print(F("Content-Length: "));
     client.println(data.length());
     client.println();
     client.println(data);
     while (client.connected()) {
       //HTTP HEADER
       String line = client.readStringUntil('\n'); //HTTP header
-      Serial.println(line);
+      // Serial.println(line);
       if (line == "\r") {
         break; //blank line between HTTP header and payload
       }
     }
-    String line = client.readStringUntil('\n'); //HTTP header
+    String line = client.readStringUntil('\n'); //HTTP response
     Serial.println(line);
     if (line = "OK") {
-      Serial.println("Server prijal data");
+      Serial.println(F("Server potvrdil prijatie dat")); //server poslal OK text ako odpoved na request
+    } else {
+      Serial.println(F("Server neodpovedal / neplatna odpoved na prijatie dat")); //ziaden output, nieco ine, co neocakavame
     }
   } else {
-    Serial.println("Neuspesne odoslanie dat - spojenie sa nepodarilo");
-  }
-}
-
-void loop() {
-  //ETHERNET DROP FIX
-  if (Ethernet.begin(mac) == 0) {
-    Serial.println("Chyba konfiguracie, manualne nastavenie");
-    wdt_reset();
-    Ethernet.begin(mac, ip, dnServer, gateway, subnet);
-  }
-
-  odosli_data();
-
-  //CAKACIA SLUCKA
-  for (int i = 0; i <= pauza; i++) {
-    delay(1000);
-    wdt_reset();
+    Serial.println(F("Neuspesne odoslanie dat - spojenie sa nepodarilo"));
   }
 }
